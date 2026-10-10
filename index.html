@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Voting System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <p class="eyebrow">FINAL-YEAR MINI PROJECT · DEMO ONLY</p>
+      <h1>Online Voting System</h1>
+      <p>Cast a sample vote, view the results, and explore a simple AI-inspired anomaly alert.</p>
+      <span class="demo-tag">Educational prototype — not for real elections</span>
+    </div>
+  </header>
+
+  <main class="container layout">
+    <section class="panel">
+      <div class="section-heading">
+        <div><p class="eyebrow">01 / VOTE</p><h2>Cast your vote</h2></div>
+      </div>
+      <p class="muted">Enter a demo voter ID and select one candidate. Each ID can vote once in this browser.</p>
+      <form id="voteForm">
+        <label for="voterId">Demo voter ID</label>
+        <input id="voterId" name="voterId" placeholder="Example: DEMO101" maxlength="30" required />
+        <fieldset>
+          <legend>Select a candidate</legend>
+          <label class="candidate"><input type="radio" name="candidate" value="Candidate A" required /><span><strong>Candidate A</strong><small>Progress and innovation</small></span></label>
+          <label class="candidate"><input type="radio" name="candidate" value="Candidate B" /><span><strong>Candidate B</strong><small>Community and opportunity</small></span></label>
+          <label class="candidate"><input type="radio" name="candidate" value="Candidate C" /><span><strong>Candidate C</strong><small>Transparency and service</small></span></label>
+        </fieldset>
+        <button type="submit" class="primary">Submit demo vote</button>
+        <p id="formMessage" class="message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div><p class="eyebrow">02 / RESULTS</p><h2>Live demo results</h2></div>
+        <span class="pill" id="totalVotes">0 votes</span>
+      </div>
+      <div id="results" class="results"></div>
+      <div class="actions">
+        <button id="refreshBtn" class="secondary" type="button">Refresh results</button>
+        <button id="resetBtn" class="danger" type="button">Reset demo data</button>
+      </div>
+      <p class="tiny muted">Results are stored only in this browser using localStorage. They are not shared between devices.</p>
+    </section>
+
+    <section class="panel wide">
+      <div class="section-heading">
+        <div><p class="eyebrow">03 / AI-INSPIRED MODULE</p><h2>Anomaly detection demo</h2></div>
+        <span class="pill neutral">Rule-based simulation</span>
+      </div>
+      <p class="muted">This learning module checks for duplicate voter IDs and repeated submissions. It demonstrates the idea of suspicious-activity detection; it is not a trained machine-learning model.</p>
+      <div class="metric-row">
+        <div class="metric"><span id="uniqueVoters">0</span><small>Unique voter IDs</small></div>
+        <div class="metric"><span id="duplicateAttempts">0</span><small>Blocked duplicate attempts</small></div>
+        <div class="metric"><span id="alertsCount">0</span><small>Demo alerts</small></div>
+      </div>
+      <div id="alerts" class="alerts" aria-live="polite"></div>
+    </section>
+
+    <section class="panel wide">
+      <p class="eyebrow">PROJECT NOTES</p>
+      <h2>What this prototype demonstrates</h2>
+      <div class="feature-grid">
+        <div><strong>Simple interface</strong><p>Responsive HTML and CSS layout with candidate selection.</p></div>
+        <div><strong>One vote per demo ID</strong><p>Browser-side checks prevent the same ID from voting twice in this demo.</p></div>
+        <div><strong>Results summary</strong><p>Vote totals and percentage bars update after a valid vote.</p></div>
+        <div><strong>Explainable alerts</strong><p>Rule-based duplicate detection provides a beginner-friendly AI concept.</p></div>
+      </div>
+      <p class="warning"><strong>Important limitation:</strong> This is a front-end academic demonstration. localStorage can be edited or cleared, voter IDs are not verified, and votes are not cryptographically protected. Do not use it for real, public, or legally binding elections.</p>
+    </section>
+  </main>
+  <footer><div class="container">Online Voting System · Academic demonstration project</div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
